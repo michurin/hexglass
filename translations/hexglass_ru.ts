@@ -14,12 +14,12 @@
         <translation>Помощь</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Copyright (c) 2010 Alexey Michurin&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
-        <translation>&lt;p&gt;Copyright (c) 2010 Alexey Michurin&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;</translation>
-    </message>
-    <message>
         <source> is a Tetris-like puzzle game. 10 different types of blocks continuously fall from above and you must arrange them to make horizontal rows of hexagonal bricks. Completing any row causes those hexagonal blocks to disappear and the rest above move downwards. The blocks above gradually fall faster and the game is over when the screen fills up and blocks can no longer fall from the top.&lt;/p&gt;&lt;p&gt;Project home page: &lt;a href=&quot;http://hexglass.googlecode.com/&quot;&gt;http://hexglass.googlecode.com/&lt;/a&gt;&lt;/p&gt;</source>
         <translation> &amp;mdash; это игра, аналогичная игре Тетрис. Десять видов блоков падают друг за другом. Цель игры: заполнять блоками горизонтальные линии. Когда линия заполняется, она исчезает, что даёт возможность продолжать игру. Блоки падают всё быстрее. Игра заканчивается, когда новому блоку нет места в стакане.&lt;/p&gt;&lt;p&gt;Домашняя страница проекта: &lt;a href=&quot;http://hexglass.googlecode.com/&quot;&gt;http://hexglass.googlecode.com/&lt;/a&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
+        <translation>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;</translation>
     </message>
 </context>
 <context>

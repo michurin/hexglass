@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     app.setOrganizationName("michurin");
     app.setOrganizationDomain("michurin.com.ru");
     app.setApplicationName(STR(HG_SIGNAME));
-    app.setWindowIcon(QIcon(":/icon.xmp"));
+    app.setWindowIcon(QIcon(":/logo512x512.xpm"));
 
     Configuration conf;
 

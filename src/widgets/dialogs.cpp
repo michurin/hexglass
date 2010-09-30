@@ -36,7 +36,7 @@ Dialogs::about() {
     tr("About"),
         "<h3>" STR(HG_NAME) " " STR(HG_VERSION) "</h3>" +
 
-    tr( "<p>Copyright (c) 2010 Alexey Michurin</p>"
+    tr( "<p>Copyright (c) 2010 Alexey Michurin &lt;a.michurin@gmail.com&gt;</p>"
 
         "<p>Released under the terms of the"
         " <a href=\"http://www.gnu.org/licenses/\">GNU GPL v3</a></p>"

@@ -22,6 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 <qresource>
 
      <file>about_icon.xpm</file>
+     <file>logo512x512.xpm</file>
 
      <file alias="tiny.xpm">skins/tiny.xpm</file>
      <file alias="mosaic_small.xpm">skins/mosaic_small.xpm</file>
