@@ -52,5 +52,7 @@ src/widgets/scorewidget.cpp
 src/widgets/scorewidget.h
 src/widgets/window.cpp
 src/widgets/window.h
+translations/hexglass_be.qm
+translations/hexglass_be.ts
 translations/hexglass_ru.qm
 translations/hexglass_ru.ts

@@ -17,7 +17,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-VERSION = 1.0.2
+VERSION = 1.0.3
 
 TEMPLATE = app
 
@@ -89,7 +89,8 @@ SOURCES   += src/hexglass.cpp \
              src/widgets/scorewidget.cpp \
              src/widgets/window.cpp
 
-TRANSLATIONS = translations/hexglass_ru.ts
+TRANSLATIONS = translations/hexglass_ru.ts \
+               translations/hexglass_be.ts
 CODECFORSRC  = UTF-8
 
 target.path += $$[QT_INSTALL_BINS]
