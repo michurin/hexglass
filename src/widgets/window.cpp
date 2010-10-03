@@ -20,15 +20,18 @@
 #include "window.h"
 #include "hexglass.h"
 
-#include <QDebug>
 #include <QKeyEvent>
+#include <QFocusEvent>
 #include <QLayout>
+//#include <QDebug>
 
 Window::Window(QWidget * parent) :
     QMainWindow(parent)
 {
     setWindowTitle(tr(STR(HG_NAME)));
     layout()->setSizeConstraint(QLayout::SetFixedSize);
+    setFocusPolicy(Qt::StrongFocus);
+    setFocus();
 }
 
 void
@@ -37,7 +40,6 @@ Window::keyPressEvent(QKeyEvent * event) {
 
 #ifdef EXTRA_CONTROL
         case Qt::Key_Home:
-            qDebug() << "key: home";
             emit shift(FIGURE_MOVER_UP);
             break;
 #endif
@@ -65,4 +67,9 @@ Window::keyPressEvent(QKeyEvent * event) {
             emit toggle_freeze();
             break;
     }
+}
+
+void
+Window::focusOutEvent (QFocusEvent * /* event */) {
+    emit force_freeze();
 }

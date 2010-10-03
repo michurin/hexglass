@@ -1,5 +1,9 @@
+1.0.2
+- Skins and sizes moved to submenus
+- Autopause: freeze game on focus lost event
+- Minor cosmetics
 1.0.1
-- Fix: icon for Mac OS X
+- Fix: icon for Mac OS X. Thanks to <cypok.info> for comprehensive testing.
 - Add e-mail to "About"
 1.0.0
 - Initial release

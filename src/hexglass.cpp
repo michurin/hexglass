@@ -27,6 +27,7 @@
 #include "window.h"
 #include "controller.h"
 #include "dialogs.h"
+#include "freeze_proxy.h"
 
 #include <QApplication>
 #include <QGridLayout>
@@ -50,8 +51,8 @@ int main(int argc, char **argv)
     }
 
     app.setApplicationVersion(QObject::tr(STR(HG_VERSION)));
-    app.setOrganizationName("michurin");
-    app.setOrganizationDomain("michurin.com.ru");
+    app.setOrganizationName(STR(HG_ORG_NAME));
+    app.setOrganizationDomain(STR(HG_ORG_DOMAIN));
     app.setApplicationName(STR(HG_SIGNAME));
     app.setWindowIcon(QIcon(":/logo512x512.xpm"));
 
@@ -121,17 +122,30 @@ int main(int argc, char **argv)
 
     // MENU
 
-    QAction *a;
-    QMenu *m;
-    QMenuBar *mbar(main_window.menuBar());
-    QActionGroup *ag;
+    QAction * a;
+    QMenu * m;
+    QMenuBar * mbar(main_window.menuBar());
+    QActionGroup * ag;
 
     m = mbar->addMenu(QObject::tr("Game"));
 
-    m->addAction(QObject::tr("New game"),
-        controller, SLOT(start_game()), Qt::Key_N);
+    m->addAction(QObject::tr("New game"), controller, SLOT(start_game()), Qt::Key_N);
 
     m->addSeparator();
+
+    QAction * freeze_a = m->addAction(QObject::tr("Autopause mode"));
+    freeze_a->setCheckable(true);
+    FreezeProxy * freeze_proxy(new FreezeProxy(&main_window));
+    QObject::connect(
+        freeze_a, SIGNAL(triggered(bool)),
+        &conf, SLOT(set_autopause_mode(bool))
+    );
+    QObject::connect(
+        freeze_a, SIGNAL(triggered(bool)),
+        freeze_proxy, SLOT(open(bool))
+    );
+
+    QMenu * size_m = m->addMenu(QObject::tr("Size"));
 
     ag = new QActionGroup(&main_window);
     QObject::connect(
@@ -143,32 +157,32 @@ int main(int argc, char **argv)
         controller, SLOT(setup_game(int, int))
     );
 
-    a = m->addAction(QObject::tr("Tiny"));
+    a = size_m->addAction(QObject::tr("Tiny"));
     a->setShortcut(Qt::Key_1);
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = m->addAction(QObject::tr("Small"));
+    a = size_m->addAction(QObject::tr("Small"));
     a->setShortcut(Qt::Key_2);
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = m->addAction(QObject::tr("Normal"));
+    a = size_m->addAction(QObject::tr("Normal"));
     a->setShortcut(Qt::Key_3);
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = m->addAction(QObject::tr("Big"));
+    a = size_m->addAction(QObject::tr("Big"));
     a->setShortcut(Qt::Key_4);
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = m->addAction(QObject::tr("Huge"));
+    a = size_m->addAction(QObject::tr("Huge"));
     a->setShortcut(Qt::Key_5);
     a->setCheckable(true);
     ag->addAction(a);
 
-    m->addSeparator();
+    QMenu * skin_m = m->addMenu(QObject::tr("Skin"));
 
     ag = new QActionGroup(&main_window);
     QObject::connect(
@@ -184,32 +198,32 @@ int main(int argc, char **argv)
         preview, SLOT(set_skin(const Skin &))
     );
 
-    a = m->addAction(QObject::tr("Small"));
+    a = skin_m->addAction(QObject::tr("Small"));
     a->setShortcut(Qt::Key_A);
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = m->addAction(QObject::tr("Mosaic normal"));
+    a = skin_m->addAction(QObject::tr("Mosaic normal"));
     a->setShortcut(Qt::Key_S);
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = m->addAction(QObject::tr("Mosaic big"));
+    a = skin_m->addAction(QObject::tr("Mosaic big"));
     a->setShortcut(Qt::Key_D);
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = m->addAction(QObject::tr("Aqua normal"));
+    a = skin_m->addAction(QObject::tr("Aqua normal"));
     a->setShortcut(Qt::Key_F);
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = m->addAction(QObject::tr("Aqua big"));
+    a = skin_m->addAction(QObject::tr("Aqua big"));
     a->setShortcut(Qt::Key_G);
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = m->addAction(QObject::tr("Huge"));
+    a = skin_m->addAction(QObject::tr("Huge"));
     a->setShortcut(Qt::Key_H);
     a->setCheckable(true);
     ag->addAction(a);
@@ -240,6 +254,14 @@ int main(int argc, char **argv)
     QObject::connect(
         &main_window, SIGNAL(toggle_freeze()),
         controller, SLOT(toggle_freeze())
+    );
+    QObject::connect(
+        &main_window, SIGNAL(force_freeze()),
+        freeze_proxy, SLOT(freeze())
+    );
+    QObject::connect(
+        freeze_proxy, SIGNAL(force_freeze()),
+        controller, SLOT(force_freeze())
     );
 
     QObject::connect(
@@ -292,12 +314,14 @@ int main(int argc, char **argv)
 
     // INIT
 
-    mbar->findChildren<QMenu *>()[0]->actions()[2 + conf.get_geometry_as_int()]->setChecked(true);
-    mbar->findChildren<QMenu *>()[0]->actions()[8 + conf.get_skin_as_int()]->setChecked(true);
+    size_m->actions()[conf.get_geometry_as_int()]->setChecked(true);
+    skin_m->actions()[conf.get_skin_as_int()]->setChecked(true);
+    freeze_a->setChecked(conf.get_autopause_mode());
 
     glass->set_skin(conf.get_skin());
     preview->set_skin(conf.get_skin());
     controller->setup_game(conf.get_width(), conf.get_height());
+    freeze_proxy->open(conf.get_autopause_mode());
 
     // SHOW
 

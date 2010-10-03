@@ -31,7 +31,10 @@ Configuration::Configuration(QObject * p) :
         QVariant(int(4))).toInt()),
     geometry_index(settings.value(
         STR(HG_SIGNAME) "/size",
-        QVariant(int(2))).toInt())
+        QVariant(int(2))).toInt()),
+    autopause_mode(settings.value(
+        STR(HG_SIGNAME) "/autopause",
+        QVariant(false)).toBool())
 {
     if (skin_index < 0 || skin_index > 6) {
         skin_index = 0;
@@ -72,6 +75,11 @@ Configuration::get_skin_as_int() const {
     return skin_index;
 }
 
+bool
+Configuration::get_autopause_mode() const {
+    return autopause_mode;
+}
+
 void
 Configuration::set_geometry(QAction * a) {
     geometry_index = a->actionGroup()->actions().indexOf(a);
@@ -87,7 +95,13 @@ Configuration::set_skin(QAction * a) {
 }
 
 void
+Configuration::set_autopause_mode(bool m) {
+    autopause_mode = m;
+}
+
+void
 Configuration::save_configuration() {
     settings.setValue(STR(HG_SIGNAME) "/skin", skin_index);
     settings.setValue(STR(HG_SIGNAME) "/size", geometry_index);
+    settings.setValue(STR(HG_SIGNAME) "/autopause", autopause_mode);
 }

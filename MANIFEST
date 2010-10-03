@@ -18,6 +18,8 @@ src/control/configuration.cpp
 src/control/configuration.h
 src/control/controller.cpp
 src/control/controller.h
+src/control/freeze_proxy.cpp
+src/control/freeze_proxy.h
 src/control/skin.cpp
 src/control/skin.h
 src/hexglass.cpp

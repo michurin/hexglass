@@ -21,7 +21,7 @@
 #include "configuration.h"
 
 #include <QTimer>
-#include <QDebug>
+//#include <QDebug>
 
 #include <stdlib.h>
 
@@ -209,6 +209,16 @@ Controller::toggle_freeze() {
     if (state == WF_UNPAUSE) {
         state = paused_state;
     } else if (state != WF_NEW_GAME) {
+        paused_state = state;
+        state = WF_UNPAUSE;
+    }
+    emit set_paused_mode(state == WF_UNPAUSE);
+    re_schedule();
+}
+
+void
+Controller::force_freeze() {
+    if (state != WF_UNPAUSE && state != WF_NEW_GAME) {
         paused_state = state;
         state = WF_UNPAUSE;
     }

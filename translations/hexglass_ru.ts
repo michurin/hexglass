@@ -107,5 +107,17 @@
         <source>Level</source>
         <translation>Уровень</translation>
     </message>
+    <message>
+        <source>Size</source>
+        <translation>Размер</translation>
+    </message>
+    <message>
+        <source>Skin</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <source>Autopause mode</source>
+        <translation>Автоматическая пауза</translation>
+    </message>
 </context>
 </TS>

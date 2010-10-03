@@ -36,6 +36,7 @@ private:
     Skin skin_bank[6];
     int skin_index;
     int geometry_index;
+    bool autopause_mode;
 
 public:
     Configuration(QObject * p = 0);
@@ -43,6 +44,7 @@ public:
     int get_height() const;
     int get_width() const;
     Skin const & get_skin() const;
+    bool get_autopause_mode() const;
 
     int get_geometry_as_int() const;
     int get_skin_as_int() const;
@@ -50,6 +52,8 @@ public:
 public slots:
     void set_geometry(QAction *);
     void set_skin(QAction *);
+    void set_autopause_mode(bool);
+
     void save_configuration();
 
 signals:

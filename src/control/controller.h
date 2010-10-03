@@ -34,12 +34,13 @@ class Controller : public QObject {
     Q_OBJECT
 
 private:
-    typedef enum {
+    typedef enum { // FW -- waiting for
         WF_NEW_GAME,
         WF_FALL_STEP,
         WF_VANISH_LINE,
         WF_SHIFT,
-        WF_UNPAUSE} state_t; // FW -- waiting for
+        WF_UNPAUSE
+    } state_t;
     int hex_width;
     int hex_height;
     int * hex_data;
@@ -77,6 +78,7 @@ public slots:
     void shift(Figure_trans_mode);
     void force_drop();
     void toggle_freeze();
+    void force_freeze();
 
     void tik();
 

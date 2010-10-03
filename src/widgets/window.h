@@ -25,6 +25,7 @@
 #include <QMainWindow>
 
 class QKeyEvent;
+class QFocusEvent;
 
 class Window : public QMainWindow {
 
@@ -32,6 +33,7 @@ class Window : public QMainWindow {
 
 protected:
     void keyPressEvent(QKeyEvent * event);
+    void focusOutEvent (QFocusEvent * event);
 
 public:
     Window(QWidget * parent = 0);
@@ -40,6 +42,7 @@ signals:
     void shift(Figure_trans_mode);
     void drop_down();
     void toggle_freeze();
+    void force_freeze();
 };
 
 #endif // SRC_WIDGETS_WINDOW_H

@@ -25,6 +25,8 @@
 
 #define HG_NAME HexGlass
 #define HG_SIGNAME hexglass
+#define HG_ORG_NAME michurin
+#define HG_ORG_DOMAIN michurin.com.ru
 #ifndef HG_VERSION
 #define HG_VERSION unknown_version
 #endif
