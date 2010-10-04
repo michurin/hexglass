@@ -3,6 +3,7 @@
 - Load qm-file at (i) the location of translation information
   for Qt strings, (ii) directory that contains the application
   executable, (iii) at builin translations.
+- Common color palette for all icons.
 1.0.3
 - Belarus locale. Thanks a lot to Prywid <prywid@mail.ru>.
 1.0.2

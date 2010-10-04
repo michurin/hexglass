@@ -1,5 +1,5 @@
 /* XPM */
-static char * drops_xpm[] = {
+static char * drop_small_xpm[] = {
 "13 132 587 2",
 "  	c None",
 ". 	c #0D0D0D",
