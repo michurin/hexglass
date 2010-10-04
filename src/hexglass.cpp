@@ -38,17 +38,12 @@
 #include <QList>
 #include <QLocale>
 #include <QTranslator>
+#include <QLibraryInfo>
 //#include <QDebug>
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-
-    QTranslator translator;
-    //qDebug() << QLocale::system().name();
-    if (translator.load(":/" STR(HG_SIGNAME) "_" + QLocale::system().name())) {
-        app.installTranslator(&translator);
-    }
 
     app.setApplicationVersion(QObject::tr(STR(HG_VERSION)));
     app.setOrganizationName(STR(HG_ORG_NAME));
@@ -56,9 +51,47 @@ int main(int argc, char **argv)
     app.setApplicationName(STR(HG_SIGNAME));
     app.setWindowIcon(QIcon(":/logo512x512.xpm"));
 
-    Configuration conf;
+    QStringList app_args(app.arguments());
+
+    // TRANSLATION
+
+    QTranslator translator;
+
+    QStringList locales_names;
+    QStringList locales_path;
+
+    int locale_arg_idx(app_args.indexOf("-locale", 1));
+    if (locale_arg_idx > 0) {
+        ++locale_arg_idx;
+        if (locale_arg_idx < app_args.size()) {
+            locales_names.append(app_args.at(locale_arg_idx));
+        }
+    }
+    locales_names.append(QLocale::system().name());
+
+    locales_path.append(QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    locales_path.append(app.applicationDirPath());
+    locales_path.append(":/");
+
+    for (int n(0); n < locales_names.size(); ++n) {
+        int p(0);
+        for (; p < locales_path.size(); ++p) {
+//            qDebug() << "try to load locale" << locales_names.at(n) << locales_path.at(p);
+            if (translator.load(
+                STR(HG_SIGNAME) "_" + locales_names.at(n),
+                locales_path.at(p))) {
+                app.installTranslator(&translator);
+                break;
+            }
+        }
+        if(p != locales_path.size()){
+            break;
+        }
+    }
 
     // CREATE
+
+    Configuration conf;
 
     Window main_window;
     Dialogs * dialogs(new Dialogs(&main_window));

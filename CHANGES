@@ -1,11 +1,16 @@
+1.0.4
+- Add CLI option -locale to force locale name.
+- Load qm-file at (i) the location of translation information
+  for Qt strings, (ii) directory that contains the application
+  executable, (iii) at builin translations.
 1.0.3
 - Belarus locale. Thanks a lot to Prywid <prywid@mail.ru>.
 1.0.2
-- Skins and sizes moved to submenus
-- Autopause: freeze game on focus lost event
-- Minor cosmetics
+- Skins and sizes moved to submenus.
+- Autopause: freeze game on focus lost event.
+- Minor cosmetics.
 1.0.1
 - Fix: icon for Mac OS X. Thanks to <cypok.info> for comprehensive testing.
-- Add e-mail to "About"
+- Add e-mail to "About".
 1.0.0
-- Initial release
+- Initial release.
