@@ -94,7 +94,8 @@ SOURCES   += src/hexglass.cpp \
              src/widgets/window.cpp
 
 TRANSLATIONS = translations/hexglass_ru.ts \
-               translations/hexglass_be.ts
+               translations/hexglass_be.ts \
+               translations/hexglass_es.ts
 CODECFORSRC  = UTF-8
 
 target.path += $$[QT_INSTALL_BINS]

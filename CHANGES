@@ -1,4 +1,5 @@
 1.0.5
+- Spanish locale. Thanks a lot to Tobias Diaz Diaz-Chiron <tobias.deb@gmail.com>
 - Minor cosmetics.
 1.0.4
 - Add CLI option -locale to force locale name.
