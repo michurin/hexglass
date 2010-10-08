@@ -17,7 +17,11 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-VERSION = 1.0.4
+VER_MAJ = 1
+VER_MIN = 0
+VER_PAT = 5
+
+VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 
 TEMPLATE = app
 

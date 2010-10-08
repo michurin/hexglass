@@ -1,3 +1,5 @@
+1.0.5
+- Minor cosmetics.
 1.0.4
 - Add CLI option -locale to force locale name.
 - Load qm-file at (i) the location of translation information
