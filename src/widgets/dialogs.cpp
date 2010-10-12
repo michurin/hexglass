@@ -98,7 +98,7 @@ Dialogs::help() {
         "</dl>"
         "<dl>"
         "<dt>Q</td>"
-        "<dd>Qute</dd>"
+        "<dd>Quit</dd>"
         "</dl>"
         )
     );
