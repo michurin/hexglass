@@ -19,7 +19,7 @@
 
 VER_MAJ = 1
 VER_MIN = 0
-VER_PAT = 6
+VER_PAT = 7
 
 VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 
@@ -95,7 +95,8 @@ SOURCES   += src/hexglass.cpp \
 
 TRANSLATIONS = translations/hexglass_ru.ts \
                translations/hexglass_be.ts \
-               translations/hexglass_es.ts
+               translations/hexglass_es.ts \
+               translations/hexglass_ca.ts
 CODECFORSRC  = UTF-8
 
 target.path += $$[QT_INSTALL_BINS]

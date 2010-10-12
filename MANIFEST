@@ -54,6 +54,8 @@ src/widgets/window.cpp
 src/widgets/window.h
 translations/hexglass_be.qm
 translations/hexglass_be.ts
+translations/hexglass_ca.qm
+translations/hexglass_ca.ts
 translations/hexglass_es.qm
 translations/hexglass_es.ts
 translations/hexglass_ru.qm
