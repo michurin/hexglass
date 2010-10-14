@@ -1,3 +1,5 @@
+1.0.8
+- China locale. Thanks a lot to Jie Luo <lililjlj@gmail.com>
 1.0.7
 - Catalan locale. Thanks a lot to Marcel Baya <mbayaf@gmail.com>
 - Fix typo in English locale (affected to all locales);
