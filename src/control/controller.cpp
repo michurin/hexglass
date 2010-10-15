@@ -1,7 +1,9 @@
 /****
     * HexGlass is a Tetris-like puzzle game.
     *
-    * Copyright (C) 2010 Alexey Michurin
+    * Project homepage: http://hexglass.googlecode.com/
+    *
+    * Copyright (C) 2010 Alexey Michurin <a.michurin@gmail.com>
     *
     * This program is free software: you can redistribute it and/or modify
     * it under the terms of the GNU General Public License as published by
@@ -194,9 +196,10 @@ Controller::shift(Figure_trans_mode mode) {
 }
 
 void
-Controller::force_drop() { // or new or unpause
-    unpause();
-    if (state == WF_FALL_STEP) {
+Controller::force_drop() { // drop or new or unpause
+    if (state == WF_UNPAUSE) {
+        toggle_freeze();
+    } else if (state == WF_FALL_STEP) {
         drop_mode = true;
         re_schedule();
     } else if (state == WF_NEW_GAME) {

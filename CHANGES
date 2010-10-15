@@ -1,14 +1,17 @@
+1.0.9
+- Space-key unpause game in pause mode.
+- Cosmetics.
 1.0.8
-- China locale. Thanks a lot to Jie Luo <lililjlj@gmail.com>
+- China locale. Thanks a lot to Jie Luo <lililjlj@gmail.com>.
 1.0.7
-- Catalan locale. Thanks a lot to Marcel Baya <mbayaf@gmail.com>
+- Catalan locale. Thanks a lot to Marcel Baya <mbayaf@gmail.com>.
 - Fix typo in English locale (affected to all locales);
-  thanks a lot to Marcel Baya <mbayaf@gmail.com>
+  thanks a lot to Marcel Baya <mbayaf@gmail.com>.
 1.0.6
 - Spanish locale. Corrections by
-  Ricardo A. Hermosilla Carrillo <ra.hermosillac@gmail.com>
+  Ricardo A. Hermosilla Carrillo <ra.hermosillac@gmail.com>.
 1.0.5
-- Spanish locale. Thanks a lot to Tobias Diaz Diaz-Chiron <tobias.deb@gmail.com>
+- Spanish locale. Thanks a lot to Tobias Diaz Diaz-Chiron <tobias.deb@gmail.com>.
 - Minor cosmetics.
 1.0.4
 - Add CLI option -locale to force locale name.

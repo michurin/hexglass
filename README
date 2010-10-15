@@ -11,15 +11,15 @@ The blocks above gradually fall faster and the
 game is over when the screen fills up and blocks
 can no longer fall from the top.
 
-Project home page: http://hexglass.googlecode.com/
-
 
 Licensing
 =========
 
 HexGlass is a Tetris-like puzzle game.
 
-Copyright (C) 2010 Alexey Michurin
+Project homepage: http://hexglass.googlecode.com/
+
+Copyright (C) 2010 Alexey Michurin <a.michurin@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@ tools installed on your system (http://www.trolltech.com/).
 Build:
 
 $ qmake # or qmake-qt4
-$ make  # or mingw32-make or nmake or other
+$ make  # or gmake or mingw32-make or nmake or other
 
 Test it:
 
@@ -63,4 +63,3 @@ Enjoy!
 
 --
 Alexey Michurin
-a.michurin@gmail.com

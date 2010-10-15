@@ -77,4 +77,29 @@ sub check_dir {
     }
 }
 
+print "Check src-tree\n";
 check_dir('../src');
+
+print "Check <MANIFEST>\n";
+open M, '<../MANIFEST' or die;
+while (<M>) {
+    chomp;
+    if ($_ eq 'README' or $_ eq 'CHANGES' or m/\.(cpp|h|pro|qrc|rc)$/) {
+        print "proc $_\n";
+        my $f = "../$_";
+        my $d = '';
+        open F, "<$f" or die;
+        while (<F>) {
+            s/\s+$//;
+            $d .= "$_\n";
+        }
+        close F;
+        $d =~ s/\n+$/\n/;
+        open F, ">$f" or die;
+        print F $d;
+        close F;
+    } else {
+        print "left $_\n";
+    }
+}
+close M;
