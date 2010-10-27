@@ -21,7 +21,7 @@
 
 VER_MAJ = 1
 VER_MIN = 1
-VER_PAT = 0
+VER_PAT = 1
 
 VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 
@@ -99,6 +99,7 @@ TRANSLATIONS = translations/hexglass_be.ts \
                translations/hexglass_ca.ts \
                translations/hexglass_es.ts \
                translations/hexglass_ru.ts \
+               translations/hexglass_uk.ts \
                translations/hexglass_zh.ts
 CODECFORSRC  = UTF-8
 
