@@ -119,5 +119,9 @@
         <source>Quit</source>
         <translation>Salir</translation>
     </message>
+    <message>
+        <source>Careful dropping</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

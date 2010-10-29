@@ -119,5 +119,9 @@
         <source>Autopause mode</source>
         <translation>Автоматическая пауза</translation>
     </message>
+    <message>
+        <source>Careful dropping</source>
+        <translation>Аккуратное бросание</translation>
+    </message>
 </context>
 </TS>

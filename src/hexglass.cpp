@@ -29,7 +29,7 @@
 #include "window.h"
 #include "controller.h"
 #include "dialogs.h"
-#include "freeze_proxy.h"
+#include "signal_gate.h"
 
 #include <QApplication>
 #include <QGridLayout>
@@ -170,26 +170,26 @@ int main(int argc, char **argv)
 
     QAction * freeze_a = m->addAction(QObject::tr("Autopause mode"));
     freeze_a->setCheckable(true);
-    FreezeProxy * freeze_proxy(new FreezeProxy(&main_window));
+    SignalGate * freeze_g(new SignalGate(&main_window));
     QObject::connect(
         freeze_a, SIGNAL(triggered(bool)),
         &conf, SLOT(set_autopause_mode(bool))
     );
     QObject::connect(
         freeze_a, SIGNAL(triggered(bool)),
-        freeze_proxy, SLOT(open(bool))
+        freeze_g, SLOT(open(bool))
     );
 
     QAction * careful_dpg_a = m->addAction(QObject::tr("Careful dropping"));
     careful_dpg_a->setCheckable(true);
-    FreezeProxy * careful_dpg_proxy(new FreezeProxy(&main_window));
+    SignalGate * careful_dpg_g(new SignalGate(&main_window));
     QObject::connect(
         careful_dpg_a, SIGNAL(triggered(bool)),
         &conf, SLOT(set_careful_dropping_mode(bool))
     );
     QObject::connect(
         careful_dpg_a, SIGNAL(triggered(bool)),
-        careful_dpg_proxy, SLOT(open(bool))
+        careful_dpg_g, SLOT(open(bool))
     );
 
     QMenu * size_m = m->addMenu(QObject::tr("Size"));
@@ -300,10 +300,10 @@ int main(int argc, char **argv)
     );
     QObject::connect(
         &main_window, SIGNAL(stop_dropping()),
-        careful_dpg_proxy, SLOT(freeze())
+        careful_dpg_g, SLOT(in())
     );
     QObject::connect(
-        careful_dpg_proxy, SIGNAL(force_freeze()),
+        careful_dpg_g, SIGNAL(out()),
         controller, SLOT(force_undrop())
     );
     QObject::connect(
@@ -312,10 +312,10 @@ int main(int argc, char **argv)
     );
     QObject::connect(
         &main_window, SIGNAL(force_freeze()),
-        freeze_proxy, SLOT(freeze())
+        freeze_g, SLOT(in())
     );
     QObject::connect(
-        freeze_proxy, SIGNAL(force_freeze()),
+        freeze_g, SIGNAL(out()),
         controller, SLOT(force_freeze())
     );
 
@@ -377,8 +377,8 @@ int main(int argc, char **argv)
     glass->set_skin(conf.get_skin());
     preview->set_skin(conf.get_skin());
     controller->setup_game(conf.get_width(), conf.get_height());
-    freeze_proxy->open(conf.get_autopause_mode());
-    careful_dpg_proxy->open(conf.get_careful_dropping_mode());
+    freeze_g->open(conf.get_autopause_mode());
+    careful_dpg_g->open(conf.get_careful_dropping_mode());
 
     // SHOW
 

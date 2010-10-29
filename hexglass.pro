@@ -66,7 +66,7 @@ HEADERS   += src/hexglass.h \
              src/logic/figures_bank.h \
              src/control/configuration.h \
              src/control/controller.h \
-             src/control/freeze_proxy.h \
+             src/control/signal_gate.h \
              src/control/skin.h \
              src/widgets/dialogs.h \
              src/widgets/displaywidget.h \
@@ -85,7 +85,7 @@ SOURCES   += src/hexglass.cpp \
              src/logic/figures_bank.cpp \
              src/control/configuration.cpp \
              src/control/controller.cpp \
-             src/control/freeze_proxy.cpp \
+             src/control/signal_gate.cpp \
              src/control/skin.cpp \
              src/widgets/dialogs.cpp \
              src/widgets/displaywidget.cpp \

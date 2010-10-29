@@ -120,5 +120,9 @@
         <source>Autopause mode</source>
         <translation>自动暂停模式</translation>
     </message>
+    <message>
+        <source>Careful dropping</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

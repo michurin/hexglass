@@ -19,27 +19,22 @@
     * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *****/
 
-#ifndef SRC_CONTROL_FREEZE_PROXY_H
-#define SRC_CONTROL_FREEZE_PROXY_H
+#include "signal_gate.h"
 
-#include <QObject>
+SignalGate::SignalGate(QObject * p) :
+    QObject(p),
+    is_open(false)
+{
+}
 
-class FreezeProxy : public QObject {
+void
+SignalGate::open(bool o) {
+    is_open = o;
+}
 
-    Q_OBJECT
-
-private:
-    bool is_open;
-
-public:
-    FreezeProxy(QObject * p = 0);
-
-public slots:
-    void open(bool);
-    void freeze();
-
-signals:
-    void force_freeze();
-};
-
-#endif // SRC_CONTROL_FREEZE_PROXY_H
+void
+SignalGate::in() {
+    if (is_open) {
+        emit out();
+    }
+}
