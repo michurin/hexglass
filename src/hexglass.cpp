@@ -180,6 +180,18 @@ int main(int argc, char **argv)
         freeze_proxy, SLOT(open(bool))
     );
 
+    QAction * careful_dpg_a = m->addAction(QObject::tr("Careful dropping"));
+    careful_dpg_a->setCheckable(true);
+    FreezeProxy * careful_dpg_proxy(new FreezeProxy(&main_window));
+    QObject::connect(
+        careful_dpg_a, SIGNAL(triggered(bool)),
+        &conf, SLOT(set_careful_dropping_mode(bool))
+    );
+    QObject::connect(
+        careful_dpg_a, SIGNAL(triggered(bool)),
+        careful_dpg_proxy, SLOT(open(bool))
+    );
+
     QMenu * size_m = m->addMenu(QObject::tr("Size"));
 
     ag = new QActionGroup(&main_window);
@@ -288,6 +300,10 @@ int main(int argc, char **argv)
     );
     QObject::connect(
         &main_window, SIGNAL(stop_dropping()),
+        careful_dpg_proxy, SLOT(freeze())
+    );
+    QObject::connect(
+        careful_dpg_proxy, SIGNAL(force_freeze()),
         controller, SLOT(force_undrop())
     );
     QObject::connect(
@@ -356,11 +372,13 @@ int main(int argc, char **argv)
     size_m->actions()[conf.get_geometry_as_int()]->setChecked(true);
     skin_m->actions()[conf.get_skin_as_int()]->setChecked(true);
     freeze_a->setChecked(conf.get_autopause_mode());
+    careful_dpg_a->setChecked(conf.get_careful_dropping_mode());
 
     glass->set_skin(conf.get_skin());
     preview->set_skin(conf.get_skin());
     controller->setup_game(conf.get_width(), conf.get_height());
     freeze_proxy->open(conf.get_autopause_mode());
+    careful_dpg_proxy->open(conf.get_careful_dropping_mode());
 
     // SHOW
 

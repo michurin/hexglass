@@ -39,6 +39,7 @@ private:
     int skin_index;
     int geometry_index;
     bool autopause_mode;
+    bool careful_dropping_mode;
 
 public:
     Configuration(QObject * p = 0);
@@ -47,6 +48,7 @@ public:
     int get_width() const;
     Skin const & get_skin() const;
     bool get_autopause_mode() const;
+    bool get_careful_dropping_mode() const;
 
     int get_geometry_as_int() const;
     int get_skin_as_int() const;
@@ -55,6 +57,7 @@ public slots:
     void set_geometry(QAction *);
     void set_skin(QAction *);
     void set_autopause_mode(bool);
+    void set_careful_dropping_mode(bool);
 
     void save_configuration();
 

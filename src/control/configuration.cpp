@@ -36,6 +36,9 @@ Configuration::Configuration(QObject * p) :
         QVariant(int(2))).toInt()),
     autopause_mode(settings.value(
         STR(HG_SIGNAME) "/autopause",
+        QVariant(false)).toBool()),
+    careful_dropping_mode(settings.value(
+        STR(HG_SIGNAME) "/careful_dropping",
         QVariant(false)).toBool())
 {
     if (skin_index < 0 || skin_index > 6) {
@@ -82,6 +85,11 @@ Configuration::get_autopause_mode() const {
     return autopause_mode;
 }
 
+bool
+Configuration::get_careful_dropping_mode() const {
+    return careful_dropping_mode;
+}
+
 void
 Configuration::set_geometry(QAction * a) {
     geometry_index = a->actionGroup()->actions().indexOf(a);
@@ -102,8 +110,14 @@ Configuration::set_autopause_mode(bool m) {
 }
 
 void
+Configuration::set_careful_dropping_mode(bool m) {
+    careful_dropping_mode = m;
+}
+
+void
 Configuration::save_configuration() {
     settings.setValue(STR(HG_SIGNAME) "/skin", skin_index);
     settings.setValue(STR(HG_SIGNAME) "/size", geometry_index);
     settings.setValue(STR(HG_SIGNAME) "/autopause", autopause_mode);
+    settings.setValue(STR(HG_SIGNAME) "/careful_dropping", careful_dropping_mode);
 }
