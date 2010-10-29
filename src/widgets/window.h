@@ -35,7 +35,8 @@ class Window : public QMainWindow {
 
 protected:
     void keyPressEvent(QKeyEvent * event);
-    void focusOutEvent (QFocusEvent * event);
+    void keyReleaseEvent(QKeyEvent * event);
+    void focusOutEvent(QFocusEvent * event);
 
 public:
     Window(QWidget * parent = 0);
@@ -43,6 +44,7 @@ public:
 signals:
     void shift(Figure_trans_mode);
     void drop_down();
+    void stop_dropping();
     void toggle_freeze();
     void force_freeze();
 };

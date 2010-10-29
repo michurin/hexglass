@@ -63,7 +63,9 @@ Window::keyPressEvent(QKeyEvent * event) {
             emit shift(FIGURE_ROTATE_RIGHT);
             break;
         case Qt::Key_Space:
-            emit drop_down();
+            if (! event->isAutoRepeat()) {
+                emit drop_down();
+            }
             break;
         case Qt::Key_P:
             emit toggle_freeze();
@@ -72,6 +74,13 @@ Window::keyPressEvent(QKeyEvent * event) {
 }
 
 void
-Window::focusOutEvent (QFocusEvent * /* event */) {
+Window::keyReleaseEvent(QKeyEvent * event) {
+    if (event->key() == Qt::Key_Space && ! event->isAutoRepeat()) {
+        emit stop_dropping();
+    }
+}
+
+void
+Window::focusOutEvent(QFocusEvent * /* event */) {
     emit force_freeze();
 }

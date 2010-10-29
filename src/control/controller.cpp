@@ -199,11 +199,19 @@ void
 Controller::force_drop() { // drop or new or unpause
     if (state == WF_UNPAUSE) {
         toggle_freeze();
-    } else if (state == WF_FALL_STEP) {
+    } else if (state == WF_FALL_STEP && ! drop_mode) {
         drop_mode = true;
         re_schedule();
     } else if (state == WF_NEW_GAME) {
         start_game();
+    }
+}
+
+void
+Controller::force_undrop() {
+    if (state == WF_FALL_STEP && drop_mode) {
+        drop_mode = false;
+        re_schedule();
     }
 }
 

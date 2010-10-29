@@ -79,6 +79,7 @@ public slots:
 
     void shift(Figure_trans_mode);
     void force_drop();
+    void force_undrop();
     void toggle_freeze();
     void force_freeze();
 

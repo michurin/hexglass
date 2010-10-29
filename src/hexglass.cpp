@@ -287,6 +287,10 @@ int main(int argc, char **argv)
         controller, SLOT(force_drop())
     );
     QObject::connect(
+        &main_window, SIGNAL(stop_dropping()),
+        controller, SLOT(force_undrop())
+    );
+    QObject::connect(
         &main_window, SIGNAL(toggle_freeze()),
         controller, SLOT(toggle_freeze())
     );
