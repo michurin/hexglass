@@ -40,6 +40,7 @@ private:
     int geometry_index;
     bool autopause_mode;
     bool careful_dropping_mode;
+    int high_scores[5][3];
 
 public:
     Configuration(QObject * p = 0);
@@ -49,6 +50,7 @@ public:
     Skin const & get_skin() const;
     bool get_autopause_mode() const;
     bool get_careful_dropping_mode() const;
+    int const * get_high_score() const;
 
     int get_geometry_as_int() const;
     int get_skin_as_int() const;
@@ -58,12 +60,14 @@ public slots:
     void set_skin(QAction *);
     void set_autopause_mode(bool);
     void set_careful_dropping_mode(bool);
+    void set_high_scores(const int *);
 
     void save_configuration();
 
 signals:
     void update_geometry(int, int);
     void update_skin(const Skin &);
+    void update_high_scores(const int *);
 };
 
 #endif // SRC_CONTROL_CONFIGURATION_H

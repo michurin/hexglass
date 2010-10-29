@@ -23,7 +23,7 @@
 #include "hexglass.h"
 
 #include <QAction>
-//#include <QDebug>
+#include <QDebug>
 
 Configuration::Configuration(QObject * p) :
     QObject(p),
@@ -53,6 +53,11 @@ Configuration::Configuration(QObject * p) :
     skin_bank[3] = Skin(":/drop_small.xpm", 13, 10, 12);
     skin_bank[4] = Skin(":/drop_big.xpm", 18, 14, 16);
     skin_bank[5] = Skin(":/huge.xpm", 26, 20, 24);
+    for (int g(0); g<5; ++g) {
+        for (int p(0); p<3; ++p) {
+            high_scores[g][p] = g * 50 + (3-p) * 20;
+        }
+    }
 }
 
 int
@@ -90,11 +95,17 @@ Configuration::get_careful_dropping_mode() const {
     return careful_dropping_mode;
 }
 
+int const *
+Configuration::get_high_score() const {
+    return high_scores[geometry_index];
+}
+
 void
 Configuration::set_geometry(QAction * a) {
     geometry_index = a->actionGroup()->actions().indexOf(a);
 //    qDebug() << "geometry_index =" << geometry_index;
     emit update_geometry(get_width(), get_height());
+    emit update_high_scores(get_high_score());
 }
 
 void
@@ -112,6 +123,13 @@ Configuration::set_autopause_mode(bool m) {
 void
 Configuration::set_careful_dropping_mode(bool m) {
     careful_dropping_mode = m;
+}
+
+void
+Configuration::set_high_scores(const int * a) {
+    for (int i(0); i<3; ++i) {
+        high_scores[geometry_index][i] = a[i];
+    }
 }
 
 void

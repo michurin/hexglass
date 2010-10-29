@@ -28,6 +28,7 @@
 #include "scorewidget.h"
 #include "window.h"
 #include "controller.h"
+#include "high_score_controller.h"
 #include "dialogs.h"
 #include "signal_gate.h"
 
@@ -103,7 +104,6 @@ int main(int argc, char **argv)
     ScoreWidget * score(new ScoreWidget());
     ScoreWidget * lines(new ScoreWidget());
     ScoreWidget * level(new ScoreWidget());
-    ScoreWidget * high_sc[3];
 
     HeadWidget * preview_head(new HeadWidget());
     HeadWidget * score_head(new HeadWidget());
@@ -135,13 +135,6 @@ int main(int argc, char **argv)
 
     high_sc_head->setText(QObject::tr("High score"));
     high_sc_box->layout()->addWidget(high_sc_head);
-    for (int i(0); i < 3; ++i) {
-         ScoreWidget * t(new ScoreWidget());
-         high_sc_box->layout()->addWidget(t);
-         high_sc[i] = t;
-    }
-
-    Controller * controller = new Controller(glass);
 
     QFrame * central_widget = new QFrame();
 
@@ -162,6 +155,17 @@ int main(int argc, char **argv)
     layout->addWidget(high_sc_box, 4, 1, 1, 1, Qt::AlignTop);
     layout->setRowStretch(4, 1);
     central_widget->setLayout(layout);
+
+    Controller * controller(new Controller(glass));
+
+    HighScoreController * high_sc_controller(new HighScoreController(glass));
+    for (int i(0); i < 3; ++i) {
+        high_sc_box->layout()->addWidget((*high_sc_controller)[i]);
+    }
+    QObject::connect(
+        high_sc_controller, SIGNAL(updated(const int *)),
+        &conf, SLOT(set_high_scores(const int *))
+    );
 
     // SETUP
 
@@ -214,6 +218,10 @@ int main(int argc, char **argv)
     QObject::connect(
         &conf, SIGNAL(update_geometry(int, int)),
         controller, SLOT(setup_game(int, int))
+    );
+    QObject::connect(
+        &conf, SIGNAL(update_high_scores(const int *)),
+        high_sc_controller, SLOT(setup_scores(const int *))
     );
 
     a = size_m->addAction(QObject::tr("Tiny"));
@@ -373,6 +381,10 @@ int main(int argc, char **argv)
         controller, SIGNAL(set_score(int)),
         score, SLOT(set_val(int))
     );
+    QObject::connect(
+        controller, SIGNAL(set_score(int)),
+        high_sc_controller, SLOT(set_val(int))
+    );
 
     QObject::connect(
         &app, SIGNAL(aboutToQuit()),
@@ -389,6 +401,7 @@ int main(int argc, char **argv)
     glass->set_skin(conf.get_skin());
     preview->set_skin(conf.get_skin());
     controller->setup_game(conf.get_width(), conf.get_height());
+    high_sc_controller->setup_scores(conf.get_high_score());
     freeze_g->open(conf.get_autopause_mode());
     careful_dpg_g->open(conf.get_careful_dropping_mode());
 

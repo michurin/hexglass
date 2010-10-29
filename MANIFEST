@@ -18,6 +18,8 @@ src/control/configuration.cpp
 src/control/configuration.h
 src/control/controller.cpp
 src/control/controller.h
+src/control/high_score_controller.cpp
+src/control/high_score_controller.h
 src/control/signal_gate.cpp
 src/control/signal_gate.h
 src/control/skin.cpp
