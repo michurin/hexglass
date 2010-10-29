@@ -400,8 +400,8 @@ int main(int argc, char **argv)
 
     glass->set_skin(conf.get_skin());
     preview->set_skin(conf.get_skin());
-    controller->setup_game(conf.get_width(), conf.get_height());
     high_sc_controller->setup_scores(conf.get_high_score());
+    controller->setup_game(conf.get_width(), conf.get_height());
     freeze_g->open(conf.get_autopause_mode());
     careful_dpg_g->open(conf.get_careful_dropping_mode());
 

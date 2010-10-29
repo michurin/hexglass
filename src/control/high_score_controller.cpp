@@ -22,7 +22,7 @@
 #include "high_score_controller.h"
 #include "scorewidget.h"
 
-#include <QDebug>
+//#include <QDebug>
 
 HighScoreController::HighScoreController(QObject * p) :
     QObject(p),

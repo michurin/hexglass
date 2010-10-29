@@ -23,7 +23,10 @@
 #include "hexglass.h"
 
 #include <QAction>
-#include <QDebug>
+//#include <QDebug>
+
+char
+Configuration::high_scores_label[] = STR(HG_SIGNAME) "/high_score_label_XX";
 
 Configuration::Configuration(QObject * p) :
     QObject(p),
@@ -53,9 +56,17 @@ Configuration::Configuration(QObject * p) :
     skin_bank[3] = Skin(":/drop_small.xpm", 13, 10, 12);
     skin_bank[4] = Skin(":/drop_big.xpm", 18, 14, 16);
     skin_bank[5] = Skin(":/huge.xpm", 26, 20, 24);
+    char * e(high_scores_label);
+    for (; *e; ++e);
+    --e;
+    char * ee(e - 1);
     for (int g(0); g<5; ++g) {
+        *ee = 'a' + g;
         for (int p(0); p<3; ++p) {
-            high_scores[g][p] = g * 50 + (3-p) * 20;
+            *e = '1' + p;
+            high_scores[g][p] = settings.value(
+                high_scores_label,
+                QVariant(int(0))).toInt();
         }
     }
 }
@@ -97,21 +108,20 @@ Configuration::get_careful_dropping_mode() const {
 
 int const *
 Configuration::get_high_score() const {
-    return high_scores[geometry_index];
+    return &high_scores[geometry_index][0];
 }
 
 void
 Configuration::set_geometry(QAction * a) {
     geometry_index = a->actionGroup()->actions().indexOf(a);
-//    qDebug() << "geometry_index =" << geometry_index;
-    emit update_geometry(get_width(), get_height());
+    // order is significant, cose update_geometry restarted game
     emit update_high_scores(get_high_score());
+    emit update_geometry(get_width(), get_height());
 }
 
 void
 Configuration::set_skin(QAction * a) {
     skin_index = a->actionGroup()->actions().indexOf(a);
-//    qDebug() << "skin_index =" << skin_index;
     emit update_skin(get_skin());
 }
 
@@ -138,4 +148,15 @@ Configuration::save_configuration() {
     settings.setValue(STR(HG_SIGNAME) "/size", geometry_index);
     settings.setValue(STR(HG_SIGNAME) "/autopause", autopause_mode);
     settings.setValue(STR(HG_SIGNAME) "/careful_dropping", careful_dropping_mode);
+    char * e(high_scores_label);
+    for (; *e; ++e);
+    --e;
+    char * ee(e - 1);
+    for (int g(0); g<5; ++g) {
+        *ee = 'a' + g;
+        for (int p(0); p<3; ++p) {
+            *e = '1' + p;
+            settings.setValue(high_scores_label, high_scores[g][p]);
+        }
+    }
 }

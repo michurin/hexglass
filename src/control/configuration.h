@@ -41,6 +41,7 @@ private:
     bool autopause_mode;
     bool careful_dropping_mode;
     int high_scores[5][3];
+    static char high_scores_label[];
 
 public:
     Configuration(QObject * p = 0);
