@@ -103,16 +103,19 @@ int main(int argc, char **argv)
     ScoreWidget * score(new ScoreWidget());
     ScoreWidget * lines(new ScoreWidget());
     ScoreWidget * level(new ScoreWidget());
+    ScoreWidget * high_sc[3];
 
     HeadWidget * preview_head(new HeadWidget());
     HeadWidget * score_head(new HeadWidget());
     HeadWidget * lines_head(new HeadWidget());
     HeadWidget * level_head(new HeadWidget());
+    HeadWidget * high_sc_head(new HeadWidget());
 
     DisplayWidget * preview_box(new DisplayWidget());
     DisplayWidget * score_box(new DisplayWidget());
     DisplayWidget * lines_box(new DisplayWidget());
     DisplayWidget * level_box(new DisplayWidget());
+    DisplayWidget * high_sc_box(new DisplayWidget());
 
     preview_head->setText(QObject::tr("Next"));
     preview_box->layout()->addWidget(preview_head);
@@ -130,6 +133,14 @@ int main(int argc, char **argv)
     level_box->layout()->addWidget(level_head);
     level_box->layout()->addWidget(level);
 
+    high_sc_head->setText(QObject::tr("High score"));
+    high_sc_box->layout()->addWidget(high_sc_head);
+    for (int i(0); i < 3; ++i) {
+         ScoreWidget * t(new ScoreWidget());
+         high_sc_box->layout()->addWidget(t);
+         high_sc[i] = t;
+    }
+
     Controller * controller = new Controller(glass);
 
     QFrame * central_widget = new QFrame();
@@ -143,12 +154,13 @@ int main(int argc, char **argv)
     layout->setSizeConstraint(QLayout::SetFixedSize);
     layout->setContentsMargins(5, 5, 5, 5);
     layout->setSpacing(4);
-    layout->addWidget(glass,       0, 0, 4, 1, Qt::AlignTop);
+    layout->addWidget(glass,       0, 0, 5, 1, Qt::AlignTop);
     layout->addWidget(preview_box, 0, 1, 1, 1, Qt::AlignTop);
     layout->addWidget(score_box,   1, 1, 1, 1, Qt::AlignTop);
     layout->addWidget(lines_box,   2, 1, 1, 1, Qt::AlignTop);
     layout->addWidget(level_box,   3, 1, 1, 1, Qt::AlignTop);
-    layout->setRowStretch(3, 1);
+    layout->addWidget(high_sc_box, 4, 1, 1, 1, Qt::AlignTop);
+    layout->setRowStretch(4, 1);
     central_widget->setLayout(layout);
 
     // SETUP
