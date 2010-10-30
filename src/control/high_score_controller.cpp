@@ -20,27 +20,25 @@
 *****/
 
 #include "high_score_controller.h"
-#include "scorewidget.h"
+#include "scorewidget.h" // vanish
+#include "signal_emiter.h"
 
 //#include <QDebug>
 
 HighScoreController::HighScoreController(QObject * p) :
     QObject(p),
-    upper(2),
-    last_v(-1)
+    upper(2)
 {
-    // we believe that all objects in heap found thouse parents,
-    // and parents take care about distruction
     for(int i(0); i<3; ++i) {
-        sc_widgets[i] = new ScoreWidget;
+        emiters[i] = new SignalEmiter(this);
     }
 }
 
 // PUBLIC
 
-ScoreWidget *
+SignalEmiter *
 HighScoreController::operator[](int i) {
-    return sc_widgets[i];
+    return emiters[i];
 }
 
 // SLOTS
@@ -49,17 +47,15 @@ void
 HighScoreController::setup_scores(int const * a) {
     for (int i(0); i<3; ++i) {
         sc[i] = a[i];
-        sc_widgets[i]->set_val(sc[i]); // direct emit DANGEROUS now!!
+        (*emiters[i])(sc[i]);
     }
-    last_v = -1;
 }
 
 void
 HighScoreController::set_val(int v) {
-    if (last_v < 0 || v < last_v) { // new game
+    if (v == 0) { // new game
         upper = 2;
     }
-    last_v = v;
     while (upper > -1) {
         if (sc[upper] > v) {
             break;
@@ -67,13 +63,13 @@ HighScoreController::set_val(int v) {
         if (upper < 2) {
             int p(upper + 1);
             sc[p] = sc[upper];
-            sc_widgets[p]->set_val(sc[upper]);
+            (*emiters[p])(sc[upper]);
         }
         --upper;
     }
     if (upper < 2) {
-        sc[upper+1] = v;
-        sc_widgets[upper+1]->set_val(v);
+        sc[upper + 1] = v;
+        (*emiters[upper + 1])(v);
         emit updated(sc);
     }
 }

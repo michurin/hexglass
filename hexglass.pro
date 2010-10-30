@@ -67,6 +67,7 @@ HEADERS   += src/hexglass.h \
              src/control/configuration.h \
              src/control/controller.h \
              src/control/high_score_controller.h \
+             src/control/signal_emiter.h \
              src/control/signal_gate.h \
              src/control/skin.h \
              src/widgets/dialogs.h \
@@ -87,6 +88,7 @@ SOURCES   += src/hexglass.cpp \
              src/control/configuration.cpp \
              src/control/controller.cpp \
              src/control/high_score_controller.cpp \
+             src/control/signal_emiter.cpp \
              src/control/signal_gate.cpp \
              src/control/skin.cpp \
              src/widgets/dialogs.cpp \

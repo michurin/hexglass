@@ -31,6 +31,7 @@
 #include "high_score_controller.h"
 #include "dialogs.h"
 #include "signal_gate.h"
+#include "signal_emiter.h"
 
 #include <QApplication>
 #include <QGridLayout>
@@ -160,7 +161,12 @@ int main(int argc, char **argv)
 
     HighScoreController * high_sc_controller(new HighScoreController(glass));
     for (int i(0); i < 3; ++i) {
-        high_sc_box->layout()->addWidget((*high_sc_controller)[i]);
+        ScoreWidget *t(new ScoreWidget());
+        high_sc_box->layout()->addWidget(t);
+        QObject::connect(
+            (*high_sc_controller)[i], SIGNAL(s(int)),
+            t, SLOT(set_val(int))
+        );
     }
     QObject::connect(
         high_sc_controller, SIGNAL(updated(const int *)),

@@ -19,33 +19,14 @@
     * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *****/
 
-#ifndef SRC_CONTROL_HIGH_SCORE_CONTROLLER_H
-#define SRC_CONTROL_HIGH_SCORE_CONTROLLER_H
+#include "signal_emiter.h"
 
-#include <QObject>
+SignalEmiter::SignalEmiter(QObject * p) :
+    QObject(p)
+{
+}
 
-class SignalEmiter;
-
-class HighScoreController : public QObject {
-
-    Q_OBJECT
-
-private:
-    SignalEmiter * emiters[3];
-    int sc[3];
-    int upper;
-
-public:
-    HighScoreController(QObject * p = 0);
-
-    SignalEmiter * operator[](int);
-
-public slots:
-    void setup_scores(int const *);
-    void set_val(int);
-
-signals:
-    void updated(const int *);
-};
-
-#endif // SRC_CONTROL_HIGH_SCORE_CONTROLLER_H
+void
+SignalEmiter::operator()(int x) {
+    emit s(x);
+}
