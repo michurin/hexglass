@@ -20,7 +20,6 @@
 *****/
 
 #include "high_score_controller.h"
-#include "scorewidget.h" // vanish
 #include "signal_emiter.h"
 
 //#include <QDebug>
