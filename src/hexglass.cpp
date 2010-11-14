@@ -134,7 +134,7 @@ int main(int argc, char **argv)
     level_box->layout()->addWidget(level_head);
     level_box->layout()->addWidget(level);
 
-    high_sc_head->setText(QObject::tr("High score"));
+    high_sc_head->setText(QObject::tr("High scores"));
     high_sc_box->layout()->addWidget(high_sc_head);
 
     QFrame * central_widget = new QFrame();

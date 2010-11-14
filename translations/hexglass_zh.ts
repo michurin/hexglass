@@ -124,5 +124,9 @@
         <source>Careful dropping</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>High scores</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

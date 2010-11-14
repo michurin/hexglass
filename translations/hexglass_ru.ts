@@ -123,5 +123,9 @@
         <source>Careful dropping</source>
         <translation>Аккуратное бросание</translation>
     </message>
+    <message>
+        <source>High scores</source>
+        <translation>Рекорды</translation>
+    </message>
 </context>
 </TS>
