@@ -101,6 +101,7 @@ SOURCES   += src/hexglass.cpp \
 
 TRANSLATIONS = translations/hexglass_be.ts \
                translations/hexglass_ca.ts \
+               translations/hexglass_cs.ts \
                translations/hexglass_es.ts \
                translations/hexglass_ru.ts \
                translations/hexglass_uk.ts \

@@ -35,6 +35,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
      <file alias="hexglass_be.qm">../translations/hexglass_be.qm</file>
      <file alias="hexglass_ca.qm">../translations/hexglass_ca.qm</file>
+     <file alias="hexglass_cs.qm">../translations/hexglass_cs.qm</file>
      <file alias="hexglass_es.qm">../translations/hexglass_es.qm</file>
      <file alias="hexglass_ru.qm">../translations/hexglass_ru.qm</file>
      <file alias="hexglass_uk.qm">../translations/hexglass_uk.qm</file>
