@@ -127,5 +127,13 @@
         <source>High scores</source>
         <translation>Рекорды</translation>
     </message>
+    <message>
+        <source>Mosaic tiny</source>
+        <translation>Мозаика крошечная</translation>
+    </message>
+    <message>
+        <source>Aqua huge</source>
+        <translation>Капли гигантские</translation>
+    </message>
 </context>
 </TS>

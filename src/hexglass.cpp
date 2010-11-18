@@ -271,7 +271,7 @@ int main(int argc, char **argv)
         preview, SLOT(set_skin(const Skin &))
     );
 
-    a = skin_m->addAction(QObject::tr("Small"));
+    a = skin_m->addAction(QObject::tr("Mosaic tiny"));
     a->setShortcut(Qt::Key_A);
     a->setCheckable(true);
     ag->addAction(a);
@@ -296,7 +296,7 @@ int main(int argc, char **argv)
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = skin_m->addAction(QObject::tr("Huge"));
+    a = skin_m->addAction(QObject::tr("Aqua huge"));
     a->setShortcut(Qt::Key_H);
     a->setCheckable(true);
     ag->addAction(a);

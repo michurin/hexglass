@@ -128,5 +128,13 @@
         <source>High scores</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Mosaic tiny</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aqua huge</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
