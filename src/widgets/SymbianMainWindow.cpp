@@ -254,7 +254,7 @@ SymbianMainWindow::processGameOver()
                                      "   background-color: rgba(0, 0, 0, 0%); "
                                      "}";
 
-    pauseButton->setStyleSheet( buttonStyleSheet.arg(":touch_icons/play.png"));
+    pauseButton->setStyleSheet( buttonStyleSheet.arg(":symbian/touch_icons/play.png"));
     gameIsOver = true ;
 }
 
@@ -271,11 +271,11 @@ SymbianMainWindow::processPauseToggled( bool on)
 
     if(on)
     {
-        pauseButton->setStyleSheet( buttonStyleSheet.arg(":touch_icons/play.png"));
+        pauseButton->setStyleSheet( buttonStyleSheet.arg(":symbian/touch_icons/play.png"));
     }
     else
     {
-        pauseButton->setStyleSheet( buttonStyleSheet.arg(":touch_icons/pause.png"));
+        pauseButton->setStyleSheet( buttonStyleSheet.arg(":symbian/touch_icons/pause.png"));
     }
 }
 
