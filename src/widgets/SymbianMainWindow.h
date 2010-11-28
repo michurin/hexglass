@@ -2,7 +2,6 @@
 #define SYMBIANMAINWINDOW_H
 
 #include <QMainWindow>
-//class QStacked
 
 class GlassWidget;
 class PreviewWidget ;
@@ -13,6 +12,9 @@ class Controller ;
 class FreezeProxy ;
 
 class QPushButton ;
+class QFrame ;
+class QLabel ;
+class QStackedLayout ;
 
 class SymbianMainWindow : public QMainWindow
 {
@@ -30,11 +32,15 @@ public slots:
     void processDropRequest() ;
     void processPauseRequest() ;
     void processCloseRequest() ;
+    void processShowHelp() ;
+    void processCloseHelp() ;
 
     void processGameOver() ;
     void processPauseToggled( bool) ;
 
 protected:
+//    void resizeEvent ( QResizeEvent * event ) ;
+
     GlassWidget * glass;
 
     PreviewWidget * preview;
@@ -56,8 +62,18 @@ protected:
     FreezeProxy * freeze_proxy ;
 
     QPushButton* pauseButton;
+    QPushButton* helpButton ;
 
     bool gameIsOver ;
+
+    QFrame* makeCentralWidget() ;
+    QFrame* makeHelpWidget() ;
+    QStackedLayout* widgetsStack ;
+
+    QSize buttonSize ;
+    QString buttonStyleSheet ;
+
+
 };
 
 #endif // SYMBIANMAINWINDOW_H

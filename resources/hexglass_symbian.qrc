@@ -30,6 +30,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
         <file>symbian/touch_icons/play.png</file>
         <file>symbian/touch_icons/right.png</file>
         <file>symbian/touch_icons/rotate.png</file>
+		<file>symbian/touch_icons/help.png</file>
 
 </qresource>
 </RCC>

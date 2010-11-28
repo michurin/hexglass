@@ -1,7 +1,7 @@
 /****
     * HexGlass is a Tetris-like puzzle game.
     *
-    * Copyright (C) 2010 Alexey Michurin
+    * Copyright (C) 2010 Alexey Michurin, Oleksiy Bilyanskyy
     *
     * This program is free software: you can redistribute it and/or modify
     * it under the terms of the GNU General Public License as published by
@@ -18,33 +18,22 @@
 *****/
 
 #include "hexglass.h"
-//#include "configuration.h"
-//#include "displaywidget.h"
-//#include "glasswidget.h"
-//#include "headwidget.h"
-//#include "previewwidget.h"
-//#include "scorewidget.h"
-//#include "window.h"
-//#include "controller.h"
-//#include "dialogs.h"
-//#include "freeze_proxy.h"
 
 #include <QApplication>
-//#include <QGridLayout>
-//#include <QFrame>
-//#include <QAction>
-//#include <QMenu>
-//#include <QMenuBar>
-//#include <QList>
+
 #include <QLocale>
 #include <QTranslator>
 #include <QLibraryInfo>
 
-//#include <QPushButton>
-//#include <QHBoxLayout>
-//#include <QSignalMapper>
+// Lock S60 orientation
+#ifdef Q_OS_SYMBIAN
+#include <eikenv.h>
+#include <eikappui.h>
+#include <aknenv.h>
+#include <aknappui.h>
+#endif
+
 #include "SymbianMainWindow.h"
-//#include <QDebug>
 
 int main(int argc, char **argv)
 {
@@ -87,6 +76,17 @@ int main(int argc, char **argv)
             break;
         }
     }
+
+    // Lock S60 orientation
+#ifdef Q_OS_SYMBIAN
+    CAknAppUi* appUi = dynamic_cast<CAknAppUi*> (CEikonEnv::Static()->AppUi());
+    TRAPD(error,
+    if (appUi) {
+        appUi->SetOrientationL(CAknAppUi::EAppUiOrientationPortrait);
+    }
+    );
+#endif
+
 
     // CREATE
     SymbianMainWindow* main_window = new SymbianMainWindow(0) ;

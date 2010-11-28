@@ -27,7 +27,7 @@ VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 
 TEMPLATE = app
 
-QT += core gui
+QT = core gui
 
 # QMAKE_CXXFLAGS = -Wextra -Weffc++
 # QMAKE_CXXFLAGS_RELEASE = -Wextra -Weffc++
@@ -105,6 +105,7 @@ CODECFORSRC  = UTF-8
 
 symbian: {
     ICON = resources/symbian/icon.svg
+    LIBS += -lcone -leikcore -lavkon
 }
 
 target.path += $$[QT_INSTALL_BINS]
