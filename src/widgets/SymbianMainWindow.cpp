@@ -55,7 +55,6 @@ SymbianMainWindow::SymbianMainWindow(QWidget *parent) :
 
 SymbianMainWindow::~SymbianMainWindow()
 {
-    delete controller ;
 }
 
 QFrame*
