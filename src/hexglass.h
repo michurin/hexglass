@@ -33,4 +33,11 @@
 #define HG_VERSION unknown_version
 #endif
 
+#ifndef DEFAULT_SKIN
+#define DEFAULT_SKIN 4
+#endif
+#ifndef DEFAULT_SIZE
+#define DEFAULT_SIZE 2
+#endif
+
 #endif // SRC_HEXGLASS_H

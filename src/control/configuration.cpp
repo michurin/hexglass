@@ -33,10 +33,10 @@ Configuration::Configuration(QObject * p) :
     settings(),
     skin_index(settings.value(
         STR(HG_SIGNAME) "/skin",
-        QVariant(int(4))).toInt()),
+        QVariant(int(DEFAULT_SKIN))).toInt()),
     geometry_index(settings.value(
         STR(HG_SIGNAME) "/size",
-        QVariant(int(2))).toInt()),
+        QVariant(int(DEFAULT_SIZE))).toInt()),
     autopause_mode(settings.value(
         STR(HG_SIGNAME) "/autopause",
         QVariant(false)).toBool()),

@@ -31,7 +31,10 @@ QT += core gui
 
 # QMAKE_CXXFLAGS = -Wextra -Weffc++
 # QMAKE_CXXFLAGS_RELEASE = -Wextra -Weffc++
+
 # DEFINES += EXTRA_CONTROL
+# DEFINES += DEFAULT_SIZE=1
+# DEFINES += DEFAULT_SKIN=1
 
 CONFIG += release
 CONFIG += qt
