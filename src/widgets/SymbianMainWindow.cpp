@@ -303,6 +303,14 @@ SymbianMainWindow::processPauseRequest()
     {
         controller->start_game();
         gameIsOver = false ;
+
+        const QString buttonStyleSheet = "QPushButton "
+                                         "{  "
+                                         "   border-image: url(%1) ; "
+                                         "   background-color: rgba(0, 0, 0, 0%); "
+                                         "}";
+
+        pauseButton->setStyleSheet( buttonStyleSheet.arg(":symbian/touch_icons/pause.png"));
     }
     else
     {
