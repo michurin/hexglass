@@ -1,3 +1,8 @@
+1.1.2 (Version with incomplete localizations. For testers and localizators.)
+- "High scores" box.
+- "Careful dropping" mode.
+- Some defaults can be setup in building time.
+- Cosmetics.
 1.1.1
 - Czech locale. Thanks a lot to Miroslav Mazel <mazelm@gmail.com>
 - Ukrainian locale. Thanks a lot to Yurii Surzhynskyi <chugylo@gmail.com>.

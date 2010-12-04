@@ -28,8 +28,10 @@
 #include "scorewidget.h"
 #include "window.h"
 #include "controller.h"
+#include "high_score_controller.h"
 #include "dialogs.h"
-#include "freeze_proxy.h"
+#include "signal_gate.h"
+#include "signal_emiter.h"
 
 #include <QApplication>
 #include <QGridLayout>
@@ -108,11 +110,13 @@ int main(int argc, char **argv)
     HeadWidget * score_head(new HeadWidget());
     HeadWidget * lines_head(new HeadWidget());
     HeadWidget * level_head(new HeadWidget());
+    HeadWidget * high_sc_head(new HeadWidget());
 
     DisplayWidget * preview_box(new DisplayWidget());
     DisplayWidget * score_box(new DisplayWidget());
     DisplayWidget * lines_box(new DisplayWidget());
     DisplayWidget * level_box(new DisplayWidget());
+    DisplayWidget * high_sc_box(new DisplayWidget());
 
     preview_head->setText(QObject::tr("Next"));
     preview_box->layout()->addWidget(preview_head);
@@ -130,7 +134,8 @@ int main(int argc, char **argv)
     level_box->layout()->addWidget(level_head);
     level_box->layout()->addWidget(level);
 
-    Controller * controller = new Controller(glass);
+    high_sc_head->setText(QObject::tr("High scores"));
+    high_sc_box->layout()->addWidget(high_sc_head);
 
     QFrame * central_widget = new QFrame();
 
@@ -143,13 +148,30 @@ int main(int argc, char **argv)
     layout->setSizeConstraint(QLayout::SetFixedSize);
     layout->setContentsMargins(5, 5, 5, 5);
     layout->setSpacing(4);
-    layout->addWidget(glass,       0, 0, 4, 1, Qt::AlignTop);
+    layout->addWidget(glass,       0, 0, 5, 1, Qt::AlignTop);
     layout->addWidget(preview_box, 0, 1, 1, 1, Qt::AlignTop);
     layout->addWidget(score_box,   1, 1, 1, 1, Qt::AlignTop);
     layout->addWidget(lines_box,   2, 1, 1, 1, Qt::AlignTop);
     layout->addWidget(level_box,   3, 1, 1, 1, Qt::AlignTop);
-    layout->setRowStretch(3, 1);
+    layout->addWidget(high_sc_box, 4, 1, 1, 1, Qt::AlignTop);
+    layout->setRowStretch(4, 1);
     central_widget->setLayout(layout);
+
+    Controller * controller(new Controller(glass));
+
+    HighScoreController * high_sc_controller(new HighScoreController(glass));
+    for (int i(0); i < 3; ++i) {
+        ScoreWidget *t(new ScoreWidget());
+        high_sc_box->layout()->addWidget(t);
+        QObject::connect(
+            (*high_sc_controller)[i], SIGNAL(s(int)),
+            t, SLOT(set_val(int))
+        );
+    }
+    QObject::connect(
+        high_sc_controller, SIGNAL(updated(const int *)),
+        &conf, SLOT(set_high_scores(const int *))
+    );
 
     // SETUP
 
@@ -170,14 +192,26 @@ int main(int argc, char **argv)
 
     QAction * freeze_a = m->addAction(QObject::tr("Autopause mode"));
     freeze_a->setCheckable(true);
-    FreezeProxy * freeze_proxy(new FreezeProxy(&main_window));
+    SignalGate * freeze_g(new SignalGate(&main_window));
     QObject::connect(
         freeze_a, SIGNAL(triggered(bool)),
         &conf, SLOT(set_autopause_mode(bool))
     );
     QObject::connect(
         freeze_a, SIGNAL(triggered(bool)),
-        freeze_proxy, SLOT(open(bool))
+        freeze_g, SLOT(open(bool))
+    );
+
+    QAction * careful_dpg_a = m->addAction(QObject::tr("Careful dropping"));
+    careful_dpg_a->setCheckable(true);
+    SignalGate * careful_dpg_g(new SignalGate(&main_window));
+    QObject::connect(
+        careful_dpg_a, SIGNAL(triggered(bool)),
+        &conf, SLOT(set_careful_dropping_mode(bool))
+    );
+    QObject::connect(
+        careful_dpg_a, SIGNAL(triggered(bool)),
+        careful_dpg_g, SLOT(open(bool))
     );
 
     QMenu * size_m = m->addMenu(QObject::tr("Size"));
@@ -190,6 +224,10 @@ int main(int argc, char **argv)
     QObject::connect(
         &conf, SIGNAL(update_geometry(int, int)),
         controller, SLOT(setup_game(int, int))
+    );
+    QObject::connect(
+        &conf, SIGNAL(update_high_scores(const int *)),
+        high_sc_controller, SLOT(setup_scores(const int *))
     );
 
     a = size_m->addAction(QObject::tr("Tiny"));
@@ -233,7 +271,7 @@ int main(int argc, char **argv)
         preview, SLOT(set_skin(const Skin &))
     );
 
-    a = skin_m->addAction(QObject::tr("Small"));
+    a = skin_m->addAction(QObject::tr("Mosaic tiny"));
     a->setShortcut(Qt::Key_A);
     a->setCheckable(true);
     ag->addAction(a);
@@ -258,7 +296,7 @@ int main(int argc, char **argv)
     a->setCheckable(true);
     ag->addAction(a);
 
-    a = skin_m->addAction(QObject::tr("Huge"));
+    a = skin_m->addAction(QObject::tr("Aqua huge"));
     a->setShortcut(Qt::Key_H);
     a->setCheckable(true);
     ag->addAction(a);
@@ -287,15 +325,23 @@ int main(int argc, char **argv)
         controller, SLOT(force_drop())
     );
     QObject::connect(
+        &main_window, SIGNAL(stop_dropping()),
+        careful_dpg_g, SLOT(in())
+    );
+    QObject::connect(
+        careful_dpg_g, SIGNAL(out()),
+        controller, SLOT(force_undrop())
+    );
+    QObject::connect(
         &main_window, SIGNAL(toggle_freeze()),
         controller, SLOT(toggle_freeze())
     );
     QObject::connect(
         &main_window, SIGNAL(force_freeze()),
-        freeze_proxy, SLOT(freeze())
+        freeze_g, SLOT(in())
     );
     QObject::connect(
-        freeze_proxy, SIGNAL(force_freeze()),
+        freeze_g, SIGNAL(out()),
         controller, SLOT(force_freeze())
     );
 
@@ -341,6 +387,10 @@ int main(int argc, char **argv)
         controller, SIGNAL(set_score(int)),
         score, SLOT(set_val(int))
     );
+    QObject::connect(
+        controller, SIGNAL(set_score(int)),
+        high_sc_controller, SLOT(set_val(int))
+    );
 
     QObject::connect(
         &app, SIGNAL(aboutToQuit()),
@@ -352,11 +402,14 @@ int main(int argc, char **argv)
     size_m->actions()[conf.get_geometry_as_int()]->setChecked(true);
     skin_m->actions()[conf.get_skin_as_int()]->setChecked(true);
     freeze_a->setChecked(conf.get_autopause_mode());
+    careful_dpg_a->setChecked(conf.get_careful_dropping_mode());
 
     glass->set_skin(conf.get_skin());
     preview->set_skin(conf.get_skin());
+    high_sc_controller->setup_scores(conf.get_high_score());
     controller->setup_game(conf.get_width(), conf.get_height());
-    freeze_proxy->open(conf.get_autopause_mode());
+    freeze_g->open(conf.get_autopause_mode());
+    careful_dpg_g->open(conf.get_careful_dropping_mode());
 
     // SHOW
 

@@ -119,5 +119,21 @@
         <source>Autopause mode</source>
         <translation>Automatická pauza</translation>
     </message>
+    <message>
+        <source>Careful dropping</source>
+        <translation>Opatrné spouštění</translation>
+    </message>
+    <message>
+        <source>High scores</source>
+        <translation>Vysoká skóre</translation>
+    </message>
+    <message>
+        <source>Mosaic tiny</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aqua huge</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

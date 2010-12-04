@@ -19,25 +19,27 @@
     * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *****/
 
-#ifndef SRC_HEXGLASS_H
-#define SRC_HEXGLASS_H
+#ifndef SRC_CONTROL_SIGNAL_GATE_H
+#define SRC_CONTROL_SIGNAL_GATE_H
 
-#define _STR_EXPAND(t) #t
-#define STR(t) _STR_EXPAND(t)
+#include <QObject>
 
-#define HG_NAME HexGlass
-#define HG_SIGNAME hexglass
-#define HG_ORG_NAME michurin
-#define HG_ORG_DOMAIN michurin.com.ru
-#ifndef HG_VERSION
-#define HG_VERSION unknown_version
-#endif
+class SignalGate : public QObject {
 
-#ifndef DEFAULT_SKIN
-#define DEFAULT_SKIN 4
-#endif
-#ifndef DEFAULT_SIZE
-#define DEFAULT_SIZE 2
-#endif
+    Q_OBJECT
 
-#endif // SRC_HEXGLASS_H
+private:
+    bool is_open;
+
+public:
+    SignalGate(QObject * p = 0);
+
+public slots:
+    void open(bool);
+    void in();
+
+signals:
+    void out();
+};
+
+#endif // SRC_CONTROL_SIGNAL_GATE_H

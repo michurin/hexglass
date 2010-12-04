@@ -19,25 +19,14 @@
     * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *****/
 
-#ifndef SRC_HEXGLASS_H
-#define SRC_HEXGLASS_H
+#include "signal_emiter.h"
 
-#define _STR_EXPAND(t) #t
-#define STR(t) _STR_EXPAND(t)
+SignalEmiter::SignalEmiter(QObject * p) :
+    QObject(p)
+{
+}
 
-#define HG_NAME HexGlass
-#define HG_SIGNAME hexglass
-#define HG_ORG_NAME michurin
-#define HG_ORG_DOMAIN michurin.com.ru
-#ifndef HG_VERSION
-#define HG_VERSION unknown_version
-#endif
-
-#ifndef DEFAULT_SKIN
-#define DEFAULT_SKIN 4
-#endif
-#ifndef DEFAULT_SIZE
-#define DEFAULT_SIZE 2
-#endif
-
-#endif // SRC_HEXGLASS_H
+void
+SignalEmiter::operator()(int x) {
+    emit s(x);
+}

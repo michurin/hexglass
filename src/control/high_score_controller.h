@@ -19,22 +19,33 @@
     * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *****/
 
-#include "freeze_proxy.h"
+#ifndef SRC_CONTROL_HIGH_SCORE_CONTROLLER_H
+#define SRC_CONTROL_HIGH_SCORE_CONTROLLER_H
 
-FreezeProxy::FreezeProxy(QObject * p) :
-    QObject(p),
-    is_open(false)
-{
-}
+#include <QObject>
 
-void
-FreezeProxy::open(bool o) {
-    is_open = o;
-}
+class SignalEmiter;
 
-void
-FreezeProxy::freeze() {
-    if (is_open) {
-        emit force_freeze();
-    }
-}
+class HighScoreController : public QObject {
+
+    Q_OBJECT
+
+private:
+    SignalEmiter * emiters[3];
+    int sc[3];
+    int upper;
+
+public:
+    HighScoreController(QObject * p = 0);
+
+    SignalEmiter * operator[](int);
+
+public slots:
+    void setup_scores(int const *);
+    void set_val(int);
+
+signals:
+    void updated(const int *);
+};
+
+#endif // SRC_CONTROL_HIGH_SCORE_CONTROLLER_H

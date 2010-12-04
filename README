@@ -58,6 +58,10 @@ Uninstall:
 
 $ sudo make uninstall
 
+You can specify some options in build time.
+Setup default size and skin:
+
+$ qmake 'DEFINES += DEFAULT_SIZE=0 DEFAULT_SKIN=0'
 
 Enjoy!
 
