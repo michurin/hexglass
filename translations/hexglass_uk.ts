@@ -121,19 +121,19 @@
     </message>
     <message>
         <source>Careful dropping</source>
-        <translation type="unfinished"></translation>
+        <translation>Обережне кидання</translation>
     </message>
     <message>
         <source>High scores</source>
-        <translation type="unfinished"></translation>
+        <translation>Рекорди</translation>
     </message>
     <message>
         <source>Mosaic tiny</source>
-        <translation type="unfinished"></translation>
+        <translation>Маленька мозаїка</translation>
     </message>
     <message>
         <source>Aqua huge</source>
-        <translation type="unfinished"></translation>
+        <translation>Величезні каплі</translation>
     </message>
 </context>
 </TS>
