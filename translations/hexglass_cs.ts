@@ -129,11 +129,11 @@
     </message>
     <message>
         <source>Mosaic tiny</source>
-        <translation type="unfinished"></translation>
+        <translation>Mozaika drobná</translation>
     </message>
     <message>
         <source>Aqua huge</source>
-        <translation type="unfinished"></translation>
+        <translation>Aqua obrovská</translation>
     </message>
 </context>
 </TS>
