@@ -121,19 +121,19 @@
     </message>
     <message>
         <source>Careful dropping</source>
-        <translation type="unfinished"></translation>
+        <translation>Posicionamiento cuidadoso</translation>
     </message>
     <message>
         <source>High scores</source>
-        <translation type="unfinished"></translation>
+        <translation>Récord</translation>
     </message>
     <message>
         <source>Mosaic tiny</source>
-        <translation type="unfinished"></translation>
+        <translation>Mosaico pequeño</translation>
     </message>
     <message>
         <source>Aqua huge</source>
-        <translation type="unfinished"></translation>
+        <translation>Agua enorme</translation>
     </message>
 </context>
 </TS>

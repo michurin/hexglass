@@ -121,19 +121,19 @@
     </message>
     <message>
         <source>Careful dropping</source>
-        <translation type="unfinished"></translation>
+        <translation>Caiguda delicada</translation>
     </message>
     <message>
         <source>High scores</source>
-        <translation type="unfinished"></translation>
+        <translation>Millor puntuació</translation>
     </message>
     <message>
         <source>Mosaic tiny</source>
-        <translation type="unfinished"></translation>
+        <translation>Mosaic petit</translation>
     </message>
     <message>
         <source>Aqua huge</source>
-        <translation type="unfinished"></translation>
+        <translation>Aqua immens</translation>
     </message>
 </context>
 </TS>
