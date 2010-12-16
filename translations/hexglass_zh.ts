@@ -122,19 +122,19 @@
     </message>
     <message>
         <source>Careful dropping</source>
-        <translation type="unfinished"></translation>
+        <translation>安全下落</translation>
     </message>
     <message>
         <source>High scores</source>
-        <translation type="unfinished"></translation>
+        <translation>排行榜</translation>
     </message>
     <message>
         <source>Mosaic tiny</source>
-        <translation type="unfinished"></translation>
+        <translation>微型马赛克</translation>
     </message>
     <message>
         <source>Aqua huge</source>
-        <translation type="unfinished"></translation>
+        <translation>特大液体</translation>
     </message>
 </context>
 </TS>
