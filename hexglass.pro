@@ -21,7 +21,7 @@
 
 VER_MAJ = 1
 VER_MIN = 2
-VER_PAT = 0
+VER_PAT = 1
 
 VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 
@@ -29,7 +29,7 @@ TEMPLATE = app
 
 QT += core gui
 
-# QMAKE_CXXFLAGS = -Wextra -Weffc++
+# QMAKE_CXXFLAGS = -Wextra -Weffc++ # -Wall -Werror
 # QMAKE_CXXFLAGS_RELEASE = -Wextra -Weffc++
 
 # DEFINES += EXTRA_CONTROL
@@ -40,6 +40,23 @@ CONFIG += release
 CONFIG += qt
 # CONFIG += warn_on
 # CONFIG += debug
+
+# ---- This option MUST be commented in production branch
+#
+CONFIG += sdl_joystick
+#
+# ----
+
+sdl_joystick {
+    message("sdl_joystick is ON")
+    LIBS += $$system(sdl-config --libs)
+    QMAKE_CFLAGS += $$system(sdl-config --cflags)
+    QMAKE_CXXFLAGS += $$system(sdl-config --cflags)
+    DEFINES += SDL_JOYSTICK
+    INCLUDEPATH += src/admixture
+    HEADERS += src/admixture/sdl_joystick.h
+    SOURCES += src/admixture/sdl_joystick.cpp
+}
 
 OBJECTS_DIR = build
 MOC_DIR = build

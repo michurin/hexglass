@@ -14,6 +14,8 @@ resources/skins/huge.xpm
 resources/skins/mosaic_big.xpm
 resources/skins/mosaic_small.xpm
 resources/skins/tiny.xpm
+src/admixture/sdl_joystick.cpp
+src/admixture/sdl_joystick.h
 src/control/configuration.cpp
 src/control/configuration.h
 src/control/controller.cpp

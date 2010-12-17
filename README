@@ -58,10 +58,18 @@ Uninstall:
 
 $ sudo make uninstall
 
+Customisation
+=============
+
 You can specify some options in build time.
+
 Setup default size and skin:
 
 $ qmake 'DEFINES += DEFAULT_SIZE=0 DEFAULT_SKIN=0'
+
+You can enable joystick (require SDL):
+
+$ qmake 'CONFIG += sdl_joystick'
 
 Enjoy!
 

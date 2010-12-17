@@ -1,3 +1,8 @@
+1.2.1
+- SDL joystick (qmake 'CONFIG += sdl_joystick')
+  Thanks a lot to Ramainen Ainu <ainu.sky@gmail.com>
+  Based on code by Fred Emmott <mail@fredemmott.co.uk>
+  (http://www.fredemmott.co.uk/blog/2009/07/23/Accessing%20joysticks%20with%20Qt)
 1.2.0
 - Stable release.
 1.1.3

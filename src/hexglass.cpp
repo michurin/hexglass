@@ -33,6 +33,10 @@
 #include "signal_gate.h"
 #include "signal_emiter.h"
 
+#ifdef SDL_JOYSTICK
+#include "sdl_joystick.h"
+#endif
+
 #include <QApplication>
 #include <QGridLayout>
 #include <QFrame>
@@ -100,6 +104,10 @@ int main(int argc, char **argv)
     Window main_window;
     Dialogs * dialogs(new Dialogs(&main_window));
     GlassWidget * glass(new GlassWidget());
+
+#ifdef SDL_JOYSTICK
+    new Joystick(&main_window);
+#endif
 
     PreviewWidget * preview(new PreviewWidget());
     ScoreWidget * score(new ScoreWidget());
