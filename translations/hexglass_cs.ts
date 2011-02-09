@@ -18,8 +18,8 @@
         <translation> je hra podobná Tetrisu. Seshora nepřetržitelně padá 10 různých typů dílků, které musíte uspořádat tak, aby vyplňovaly řádky. Vyplnění jakéhokoli řádku způsobí, že všechny čtverečky v tomto řádku zmizí a čtverečky nad řádkem se posunou směrem dolu. Dílky postupně padají rychleji a hra končí, když se obrazovka zaplní a dílky už nemohou nadále seshora padat.&lt;/p&gt;&lt;p&gt;Domovská stránka projektu: &lt;a href=&quot;http://hexglass.googlecode.com/&quot;&gt;http://hexglass.googlecode.com/&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
-        <translation>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Vydáno pod licencí &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;</translation>
+        <source>&lt;p&gt;Copyright (c) 2010-2011 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
+        <translation>&lt;p&gt;Copyright (c) 2010-2011 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Vydáno pod licencí &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;</translation>
     </message>
 </context>
 <context>

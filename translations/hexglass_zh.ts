@@ -18,8 +18,8 @@
         <translation> 是一个类似俄罗斯方块的游戏。从屏幕上方不断有六边形砖块落下，游戏玩家需要把落下的10种不同的砖块重新排列成完整的行，完整的行将被消除，其上的原样落下。随着游戏进行，速度月来越快。当挤满砖块无法下落时游戏结束。&lt;/p&gt;&lt;p&gt;项目主页：&lt;a href=&quot;http://hexglass.googlecode.com/&quot;&gt;http://hexglass.googlecode.com/&lt;/a&gt;&lt;/p&gt; </translation>
     </message>
     <message>
-        <source>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
-        <translation>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;在&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;协议下发布&lt;/p&gt;&lt;p&gt;
+        <source>&lt;p&gt;Copyright (c) 2010-2011 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
+        <translation>&lt;p&gt;Copyright (c) 2010-2011 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;在&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;协议下发布&lt;/p&gt;&lt;p&gt;
 </translation>
     </message>
 </context>

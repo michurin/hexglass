@@ -18,8 +18,8 @@
         <translation> &amp;mdash; это игра, аналогичная игре Тетрис. Десять видов блоков падают друг за другом. Цель игры: заполнять блоками горизонтальные линии. Когда линия заполняется, она исчезает, что даёт возможность продолжать игру. Блоки падают всё быстрее. Игра заканчивается, когда новому блоку нет места в стакане.&lt;/p&gt;&lt;p&gt;Домашняя страница проекта: &lt;a href=&quot;http://hexglass.googlecode.com/&quot;&gt;http://hexglass.googlecode.com/&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
-        <translation>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;</translation>
+        <source>&lt;p&gt;Copyright (c) 2010-2011 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
+        <translation>&lt;p&gt;Copyright (c) 2010-2011 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;</translation>
     </message>
 </context>
 <context>

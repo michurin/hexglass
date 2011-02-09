@@ -18,8 +18,8 @@
         <translation> és un joc similar al Tetris. 10 tipus de peces diferents cauen contínuament des de dalt i s&apos;han d&apos;anar ordenant per fer línies horitzontals de peces hexagonals. Quan es completa una línia, aquests blocs hexagonals desapareixen i els que resten per sobre es mouen avall. Els blocs van caient cada vegada més ràpidament, i el joc s&apos;acaba quan les peces arriben a la part superior de la pantalla impedint que surtin peces noves.&lt;/p&gt;&lt;p&gt;Pàgina del projecte: &lt;a href=&quot;http://hexglass.googlecode.com/&quot;&gt;http://hexglass.googlecode.com/&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
-        <translation>&lt;p&gt;Copyright (c) 2010 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;</translation>
+        <source>&lt;p&gt;Copyright (c) 2010-2011 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The </source>
+        <translation>&lt;p&gt;Copyright (c) 2010-2011 Alexey Michurin &amp;lt;a.michurin@gmail.com&amp;gt;&lt;/p&gt;&lt;p&gt;Released under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;GNU GPL v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;</translation>
     </message>
 </context>
 <context>

@@ -3,7 +3,7 @@
 #
 # Project homepage: http://hexglass.googlecode.com/
 #
-# Copyright (C) 2010 Alexey Michurin <a.michurin@gmail.com>
+# Copyright (C) 2010-2011 Alexey Michurin <a.michurin@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 
 VER_MAJ = 1
 VER_MIN = 2
-VER_PAT = 0
+VER_PAT = 1
 
 VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 
@@ -105,6 +105,7 @@ SOURCES   += src/hexglass.cpp \
 TRANSLATIONS = translations/hexglass_be.ts \
                translations/hexglass_ca.ts \
                translations/hexglass_cs.ts \
+               translations/hexglass_el.ts \
                translations/hexglass_es.ts \
                translations/hexglass_ru.ts \
                translations/hexglass_uk.ts \

@@ -4,7 +4,7 @@ HexGlass is a Tetris-like puzzle game.
 
 Project homepage: http://hexglass.googlecode.com/
 
-Copyright (C) 2010 Alexey Michurin <a.michurin@gmail.com>
+Copyright (C) 2010-2011 Alexey Michurin <a.michurin@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -36,6 +36,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
      <file alias="hexglass_be.qm">../translations/hexglass_be.qm</file>
      <file alias="hexglass_ca.qm">../translations/hexglass_ca.qm</file>
      <file alias="hexglass_cs.qm">../translations/hexglass_cs.qm</file>
+     <file alias="hexglass_el.qm">../translations/hexglass_el.qm</file>
      <file alias="hexglass_es.qm">../translations/hexglass_es.qm</file>
      <file alias="hexglass_ru.qm">../translations/hexglass_ru.qm</file>
      <file alias="hexglass_uk.qm">../translations/hexglass_uk.qm</file>
