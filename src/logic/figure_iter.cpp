@@ -27,7 +27,7 @@ Figure_iter::Figure_iter(Figure const & figure) :
 {
     PPlace const * s(figure.figure);
     for(LPlace * t(ptr); t < end; ++t, ++s) {
-        *t = *s;
+        *t = LPlace(*s);
 #ifdef SELF_TEST
         std::cout << "copy: " << (*t).x << " " << (*t).y << " (logical)" << std::endl;
 #endif

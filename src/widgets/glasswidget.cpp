@@ -69,7 +69,11 @@ GlassWidget::paintEvent(QPaintEvent * event) {
         painter.setFont(f);
         QFontMetrics metrics = painter.fontMetrics();
         QString text(tr("pause"));
+#if QT_VERSION < QT_VERSION_CHECK(5,11,0)
         int tw(metrics.width(text));
+#else
+        int tw(metrics.horizontalAdvance(text));
+#endif
         int th(metrics.lineSpacing());
         int md(metrics.descent());
         QBrush b(QColor(0, 0, 0, 192));
