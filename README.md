@@ -1,5 +1,4 @@
-HexGlass
-========
+# HexGlass
 
 The HexGlass is a Tetris-like puzzle game where
 10 different types of blocks continuously fall
@@ -12,14 +11,13 @@ game is over when the screen fills up and blocks
 can no longer fall from the top.
 
 
-Licensing
-=========
+## Licensing
 
 HexGlass is a Tetris-like puzzle game.
 
-Project homepage: http://hexglass.googlecode.com/
+Project homepage: https://github.com/michurin/hexglass
 
-Copyright (C) 2010 Alexey Michurin <a.michurin@gmail.com>
+Copyright (C) 2010-2020 Alexey Michurin <a.michurin@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -35,33 +33,44 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
-Build
-=====
+## Build
 
 Before building, you will need to have the Qt4 library and developers
 tools installed on your system (http://www.trolltech.com/).
 
 Build:
 
-$ qmake # or qmake-qt4
-$ make  # or gmake or mingw32-make or nmake or other
+```sh
+mkdir -p build
+cd build
+qmake .. # or qmake-qt4
+make     # or gmake or mingw32-make or nmake or other
+```
 
 Test it:
 
-$ ./hexglass # or hexglass.exe ,-)
+```sh
+./hexglass # or hexglass.exe ,-)
+```
 
 Install:
 
-$ sudo make install
+```sh
+sudo make install
+```
 
 Uninstall:
 
-$ sudo make uninstall
+```sh
+sudo make uninstall
+```
 
 You can specify some options in build time.
 Setup default size and skin:
 
-$ qmake 'DEFINES += DEFAULT_SIZE=0 DEFAULT_SKIN=0'
+```sh
+qmake 'DEFINES += DEFAULT_SIZE=0 DEFAULT_SKIN=0'
+```
 
 Enjoy!
 

@@ -131,3 +131,6 @@ source_dist.commands += 'tar cf - -T MANIFEST | tar xf - -C $${SDIST_DIR};'
 source_dist.commands += 'tar cf - -C $${SDIST_BUILD_DIR} $${TARGET}-$${VERSION} | gzip -9c >$${SDIST_FILE}'
 
 QMAKE_EXTRA_TARGETS += source_dist
+
+DISTFILES += \
+    README.md
