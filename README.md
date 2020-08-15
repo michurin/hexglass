@@ -10,6 +10,7 @@ The blocks above gradually fall faster and the
 game is over when the screen fills up and blocks
 can no longer fall from the top.
 
+<p align="center"><img width="267" height="489" src="utils/hexglass.png" alt="Screenshot: hexagonal Tetris-like puzzle game"></p>
 
 ## Licensing
 
