@@ -36,11 +36,6 @@ PPlace::PPlace(LPlace const & logical_place):
 {
 }
 
-PPlace::PPlace(PPlace const & phys_place):
-    AbstractPlace(phys_place.x, phys_place.y)
-{
-}
-
 PPlace const
 PPlace::operator+(PPlace const & s) const {
     return PPlace(x + s.x, y + s.y);

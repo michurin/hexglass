@@ -31,8 +31,7 @@ class PPlace : public AbstractPlace {
 public:
     PPlace();
     PPlace(int xx, int yy);
-    PPlace(LPlace const & logical_place);
-    PPlace(PPlace const & logical_place);
+    explicit PPlace(LPlace const & logical_place);
     PPlace const operator+(PPlace const & s) const;
     PPlace const operator+=(PPlace const & s);
     PPlace const operator-(PPlace const & s) const;

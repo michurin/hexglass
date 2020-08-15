@@ -27,7 +27,7 @@ VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 
 TEMPLATE = app
 
-QT += core gui
+QT += core gui widgets
 
 # QMAKE_CXXFLAGS = -Wextra -Weffc++
 # QMAKE_CXXFLAGS_RELEASE = -Wextra -Weffc++

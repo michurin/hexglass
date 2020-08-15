@@ -31,7 +31,7 @@ class LPlace : public AbstractPlace {
 public:
     LPlace();
     LPlace(int x, int y);
-    LPlace(PPlace const & phys_place);
+    explicit LPlace(PPlace const & phys_place);
 };
 
 #endif // SRC_LOGIC_LPLACE_H
