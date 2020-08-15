@@ -1,3 +1,5 @@
+1.2.2
+- Porting from Qt4 to Qt5. Thanks a lot to Alexander Drozdov <adrozdoff@gmail.com>
 1.2.1
 - French locale. Thanks a lot to Vincent Petry <Vince81@opensuse.org>
   for translation and Kyrill Detinov <lazy.kent@opensuse.org> for assistance.
