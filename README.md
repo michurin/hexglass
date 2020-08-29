@@ -44,7 +44,7 @@ Build:
 ```sh
 mkdir -p build
 cd build
-qmake .. # or qmake-qt4
+qmake .. # or qmake-qt5
 make     # or gmake or mingw32-make or nmake or other
 ```
 
